@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:vercel": "vite build --force",  ← ADICIONE ESTA LINHA
+    "build:vercel": "vite build --force",
     "lint": "eslint .",
     "preview": "vite preview"
   },
