@@ -1,11 +1,11 @@
 // src/contexts/UserContext.jsx
 import { createContext, useState, useContext, useEffect } from "react"
-import { useAuth } from "./AuthContext"
+import { useAuth } from "./AuthContext"  // caminho relativo correto
 
 const UserContext = createContext()
 
 export function UserProvider({ children }) {
-  const { user: authUser, setUser } = useAuth() // Precisamos do setUser
+  const { user: authUser, setUser } = useAuth() // setUser é a função updateUser do AuthContext
   const [usuario, setUsuario] = useState(authUser)
 
   useEffect(() => {
@@ -17,14 +17,20 @@ export function UserProvider({ children }) {
     setUsuario(prev => ({ ...prev, foto }))
 
     // Atualiza no AuthContext também!
-    setUser(prev => ({ ...prev, foto }))
+    if (setUser) {
+      setUser({ ...authUser, foto })
+    }
 
     // Opcional: salvar no localStorage para persistir
-    const usuariosSalvos = JSON.parse(localStorage.getItem("usuarios") || "[]")
-    const usuarioAtualizado = usuariosSalvos.map(u =>
-      u.id === authUser.id ? { ...u, foto } : u
-    )
-    localStorage.setItem("usuarios", JSON.stringify(usuarioAtualizado))
+    try {
+      const usuariosSalvos = JSON.parse(localStorage.getItem("usuarios") || "[]")
+      const usuarioAtualizado = usuariosSalvos.map(u =>
+        u.id === authUser?.id ? { ...u, foto } : u
+      )
+      localStorage.setItem("usuarios", JSON.stringify(usuarioAtualizado))
+    } catch (e) {
+      console.error("Erro ao salvar no localStorage", e)
+    }
   }
 
   return (

@@ -1,6 +1,6 @@
 // src/contexts/AuthContext.jsx
 import { createContext, useState, useContext } from "react"
-import { usuarios as usuariosData } from "../data/usuarios"
+import { usuarios as usuariosData } from "../Data/usuarios"  // ✅ D maiúsculo
 
 const AuthContext = createContext()
 
