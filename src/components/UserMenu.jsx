@@ -30,7 +30,8 @@ export default function UserMenu() {
     navigate("/login")
   }
 
-  const nomeCompleto = `${user?.nome} ${user?.sobrenome}`
+  // ✅ CORRIGIDO: usa nomeCompleto em vez de concatenar
+  const nomeCompleto = user?.nomeCompleto || "Usuário"
 
   return (
     <div className="relative" ref={menuRef}>

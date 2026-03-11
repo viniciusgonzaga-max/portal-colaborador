@@ -2,8 +2,7 @@
 export const usuarios = [
   {
     id: 1,
-    nome: "Vinicius",
-    sobrenome: "Henrique Gonzaga",
+    nomeCompleto: "Vinicius Henrique Gonzaga",
     email: "vinicius.gonzaga@rededecisao.com.br",
     senha: "83732013",
     cargo: "Analista de Departamento Pessoal",
@@ -15,8 +14,7 @@ export const usuarios = [
   },
   {
     id: 2,
-    nome: "Fernanda",
-    sobrenome: "Vidmar",
+    nomeCompleto: "Fernanda Vidmar",
     email: "fernanda.almeida@rededecisao.com.br",
     senha: "123456",
     cargo: "Coordenadora de Departamento Pessoal",
@@ -28,8 +26,7 @@ export const usuarios = [
   },
   {
     id: 3,
-    nome: "João",
-    sobrenome: "Pereira",
+    nomeCompleto: "João Pereira",
     email: "joao@empresa.com",
     senha: "123456",
     cargo: "Desenvolvedor",

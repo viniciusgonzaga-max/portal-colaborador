@@ -1,15 +1,15 @@
 // src/pages/Perfil.jsx
 import { useRef } from "react"
-import { useAuth } from "../contexts/AuthContext" // Mude para useAuth
-import { useUser } from "../contexts/UserContext" // Mantém para atualizar foto
+import { useAuth } from "../contexts/AuthContext"
+import { useUser } from "../contexts/UserContext"
 
 export default function Perfil() {
-  const { user } = useAuth() // Pegue o user do auth
-  const { atualizarFoto } = useUser() // Mantém apenas a função de atualizar foto
+  const { user } = useAuth()
+  const { atualizarFoto } = useUser()
   const fileInputRef = useRef(null)
 
-  const nomeCompleto = `${user.nome} ${user.sobrenome}`
-  const inicial = user.nome.charAt(0).toUpperCase()
+  const nomeCompleto = user.nomeCompleto // ← AGORA USA DIRETO O CAMPO
+  const inicial = user.nomeCompleto.charAt(0).toUpperCase() // ← PRIMEIRA LETRA DO NOME COMPLETO
 
   function handleFotoChange(e) {
     const file = e.target.files[0]
